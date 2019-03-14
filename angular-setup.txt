@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'Installing Node'
-nvm install node
-npm install -g npm
-npm install -g @angular/cli
+                           echo 'Installing Node'
+                           nvm install node
+                           npm install -g npm
+                           npm install -g @angular/cli

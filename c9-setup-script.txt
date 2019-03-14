@@ -15,7 +15,4 @@ echo 'Installing Maven 3'
 sudo apt-get -y install maven
 echo 'Maven 3 Installed'
 echo 'Installing node'
-nvm install node
-npm install -g npm
-npm install -g @angular/cli
 echo 'installation complete'

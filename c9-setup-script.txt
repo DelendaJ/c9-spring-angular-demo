@@ -1,0 +1,21 @@
+#!/bin/bash
+echo 'Updating System'
+sudo apt-get update
+echo 'Update Complete'
+echo 'Install Java'
+sudo apt-get -y install default-jre
+echo 'Java is installed'
+echo 'Installing JDK'
+sudo apt-get -y install default-jdk
+echo 'JDK installed'
+echo 'Removing Maven 2'
+sudo apt-get -y remove maven2
+echo 'Maven 2 removed'
+echo 'Installing Maven 3'
+sudo apt-get -y install maven
+echo 'Maven 3 Installed'
+echo 'Installing node'
+nvm install node
+npm install -g npm
+npm install -g @angular/cli
+echo 'installation complete'

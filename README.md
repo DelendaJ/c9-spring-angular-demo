@@ -27,7 +27,7 @@ npm install -g @angular/cli
 
 #### Step 4
 ```$xslt
-cd src/main/angular/ui/ && npm install && cd ../../../../
+cd src/main/angular/ui/
 ```
 
 #### Step 5

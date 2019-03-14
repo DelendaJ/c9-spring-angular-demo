@@ -13,4 +13,8 @@ export class ArtistService {
   getAll():Observable<Array<Artist>>{
     return this.httpClient.get<Array<Artist>>(`${this.URL}`);
   }
+
+  create(artist:Artist):Observable<Array<Artist>>{
+    return this.httpClient.post<Array<Artist>>(`${this.URL}`, artist);
+  }
 }

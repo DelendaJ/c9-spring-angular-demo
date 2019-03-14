@@ -2,9 +2,11 @@ package com.codedifferently.genius.controllers;
 
 
 import com.codedifferently.genius.models.Artist;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.codedifferently.genius.repositories.ArtistRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,26 @@ import java.util.List;
 @RequestMapping("/api")
 public class ArtistController {
 
+    private final Logger logger = LoggerFactory.getLogger(ArtistController.class);
+
+    private ArtistRepository artistRepository;
+
+    @Autowired
+    public ArtistController(ArtistRepository artistRepositoryIn){
+        this.artistRepository = artistRepositoryIn;
+    }
+
     @GetMapping("/artists")
-    public List<Artist> getAllArtist(){
-        List<Artist> allArtist = new ArrayList<>();
-        Artist artist = new Artist(1l, "Rza");
-        allArtist.add(artist);
-        return allArtist;
+    public Iterable<Artist> getAllArtist(){
+        Iterable<Artist> artists = artistRepository.findAll();
+        return artists;
+
+     }
+
+     @PostMapping("/artists")
+    public Iterable<Artist> create(@RequestBody Artist artist){
+        logger.info("Creating Artist " + artist.getName());
+        artistRepository.save(artist);
+        return artistRepository.findAll();
      }
 }

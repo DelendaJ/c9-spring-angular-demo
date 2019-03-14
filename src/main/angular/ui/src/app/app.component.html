@@ -1,10 +1,51 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button"
-          data-toggle="collapse" data-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false"
-          aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Genius</a>
 
-</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+
+    <div class="col-lg-12">
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h3 class="card-title">Add Artist</h3>
+          <label>name:
+            <input [(ngModel)]="inputArtist" placeholder="name"/>
+          </label>
+          <button type="button" (click)="addHero()">Add Hero</button>
+        </div>
+      </div>
+      <!-- /.card -->
+
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <div class="row">
+
+
+    <div class="col-lg-12">
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h3 class="card-title">Greatest Artist</h3>
+          <ul class="artist">
+            <li *ngFor="let artist of artists">
+              <span class="badge">{{artist.id}}</span> {{artist.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.card -->
+
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+
+</div>
+

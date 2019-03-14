@@ -8,6 +8,8 @@ import {Artist} from "./models/artist";
 })
 export class AppComponent {
   title = 'app';
+  artists = [];
+  inputArtist = "";
 
   constructor(private artistService: ArtistService){}
 
@@ -15,6 +17,21 @@ export class AppComponent {
     this.artistService.getAll()
       .subscribe((artist:Array<Artist>) =>{
         console.log(artist);
+        this.artists = artist;
       })
+  }
+
+  addHero(){
+    if (this.inputArtist !=""){
+      console.log(this.inputArtist);
+      let artist:Artist = new Artist();
+      artist.name = this.inputArtist;
+      this.inputArtist = "";
+      this.artistService.create(artist)
+        .subscribe((artist:Array<Artist>) =>{
+        console.log(artist);
+        this.artists = artist;
+      })
+    }
   }
 }

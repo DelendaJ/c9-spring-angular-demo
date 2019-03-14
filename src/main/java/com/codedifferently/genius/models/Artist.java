@@ -1,15 +1,17 @@
 package com.codedifferently.genius.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Artist {
+    @Id
+    @GeneratedValue
     private long id;
+    
     private String name;
 
-    public Artist(long idIn, String nameIn){
-        this.id = idIn;
-        this.name = nameIn;
-    }
-
-    public Artist(){}
 
     public long getId() {
         return id;
